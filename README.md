@@ -118,6 +118,13 @@ Unlike the standard BN-ReLU order in ResNets, DARTS uses ReLU-Conv-BN throughout
 
 ## Continuous Relaxation
 
+![DARTS Overview](assets/darts_overview.jpg)
+
+*Figure 1 from the paper: (a) operations on edges are initially unknown, 
+(b) continuous relaxation places a mixture of all ops on each edge, 
+(c) joint optimization sharpens the mixing weights, 
+(d) the final discrete architecture is derived from the learned weights.*
+
 ### The Discrete Problem
 
 Normally, choosing an operation for edge (i→j) is discrete. You pick `sep_conv_3x3` or `max_pool` or `skip_connect` — one of 8 options. There is no gradient through this choice.
@@ -893,6 +900,13 @@ Refactor bottom-up: extract `ops.py` first (no dependencies), then `mixed_op.py`
 ---
 
 ## Searched Architecture (This Run)
+
+![Learned Cells](assets/learned_cells.jpg)
+
+*Figures 4 and 5 from the paper: normal cell (top) and reduction cell (bottom) 
+learned by DARTS on CIFAR-10. The paper's normal cell favors sep_conv_3x3 
+and skip_connect; this implementation's single-seed search produces a 
+different topology with more pooling operations.*
 
 ```python
 Genotype(

@@ -29,7 +29,7 @@ A clean, cell-by-cell Jupyter notebook implementation of [DARTS: Differentiable 
 ---
 
 ## What This Is
-[Neural Architecture Search ! ](assets/NAS.png)
+[NAS](assets/NAS.png)
 
 DARTS replaces the discrete, non-differentiable problem of neural architecture search with a continuous relaxation — placing a softmax-weighted mixture of all candidate operations on each edge of a cell DAG, then optimizing architecture parameters α alongside network weights via bilevel optimization. At the end of search, the soft mixture is discretized by taking the argmax per edge.
 
